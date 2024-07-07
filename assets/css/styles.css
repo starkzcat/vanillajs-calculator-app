@@ -36,3 +36,259 @@ img {
 }
 
 /* ^^^ CSS RESET ^^^ */
+
+:root {
+  --orange: rgb(255, 174, 69);
+  --gray: rgb(120, 120, 120);
+
+  --bg-dark: #242424;
+  --text-primary-dark: #e7e7e7;
+  --text-secondary-dark: var(--gray);
+
+  --bg-light: #efefef;
+  --text-primary-light: #2f2f2f;
+  --text-secondary-light: rgb(162, 162, 162);
+}
+
+body {
+  background-color: var(--orange);
+  font-family: "Lucida Sans", "Lucida Sans Regular", Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.calculator {
+  &.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-primary-dark);
+
+    & .container {
+      & .operation {
+        color: var(--text-secondary-dark);
+      }
+
+      & .keys {
+        & button {
+          color: var(--text-secondary-dark);
+        }
+      }
+    }
+  }
+
+  background-color: var(--bg-light);
+  color: var(--text-primary-light);
+  height: fit-content;
+  width: fit-content;
+  border-radius: 2rem;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+
+  & .container {
+    /* background-color: aquamarine; */
+    padding: 5.5rem 2rem 2rem;
+    max-width: 420px;
+
+    & .result {
+      /* background-color: red; */
+      font-size: 4rem;
+
+      & .result--medium {
+        font-size: 3.2rem;
+      }
+
+      & .result--small {
+        font-size: 2.4rem;
+      }
+    }
+
+    & .operation {
+      /* background-color: greenyellow; */
+      /* visibility: hidden; */
+      display: flex;
+      flex-direction: row-reverse;
+      width: 100%;
+      color: var(--text-secondary-light);
+
+      & span {
+        /* background-color: purple; */
+        padding: 2em 0 1em;
+        display: block;
+        width: 100%;
+        overflow: scroll;
+        direction: rtl;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    & .keys {
+      /* background-color: red; */
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-template-rows: repeat(5, 80px);
+      gap: 10px;
+      justify-content: center;
+
+      & button {
+        color: var(--text-secondary-light);
+        cursor: pointer;
+        border-radius: 1em;
+        background-color: var(--bg-color);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border: none;
+        font-size: 1.2em;
+        transition: all 0.05s;
+
+        &.ac,
+        &.del,
+        &.divide,
+        &.minus,
+        &.times,
+        &.plus {
+          color: var(--orange);
+
+          &:hover {
+            color: white;
+          }
+        }
+        &.equals {
+          color: white;
+          background-color: var(--orange);
+
+          &:hover {
+            color: var(--orange);
+            background-color: white;
+          }
+
+          &:active {
+            background-color: var(--orange);
+            color: white;
+          }
+        }
+
+        &:hover {
+          background-color: var(--orange);
+        }
+
+        &:active {
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.ac {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.del {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.divide {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.num7 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.num8 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.num9 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.times {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.num4 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.num5 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.num6 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.times {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.num1 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.num2 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+.num3 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.plus {
+  grid-area: 4 / 4 / 5 / 5;
+}
+.num0 {
+  grid-area: 5 / 1 / 6 / 2;
+}
+.point {
+  grid-area: 5 / 2 / 6 / 3;
+}
+.equals {
+  grid-area: 5 / 3 / 6 / 5;
+}
+
+.dark-mode-switch {
+  /* background-color: yellow; */
+  position: absolute;
+  width: 60px;
+  height: 34px;
+  top: 2.5em;
+  right: 2.5em;
+
+  & .switch {
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    & input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .slider {
+        background-color: #00294b;
+      }
+
+      &:checked + .slider:before {
+        transform: translateX(26px);
+      }
+    }
+
+    & .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #63d8ff;
+      transition: 0.4s;
+      border-radius: 34px;
+
+      &:before {
+        content: "";
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+        left: 4px;
+        bottom: 4px;
+        transition: 0.4s;
+      }
+    }
+  }
+}

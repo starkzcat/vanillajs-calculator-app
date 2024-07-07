@@ -8,6 +8,50 @@
     <title>Calculator App</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <div class="calculator" id="calculator-app">
+      <div class="container">
+        <div class="result">
+          <!-- 1-6 = none; 7-9 = medium; 10-12 digits = small; -->
+          <span class="" id="c-result">0</span>
+        </div>
+        <div class="operation">
+          <span id="c-operation"
+            >5000+600+78+9124+5000+600+78+9124+5000+600+78+9124</span
+          >
+        </div>
+        <div class="keys">
+          <!-- first row -->
+          <button class="ac">AC</button>
+          <button class="del">del</button>
+          <button class="divide">&divide;</button>
+          <!-- second row -->
+          <button class="num7">7</button>
+          <button class="num8">8</button>
+          <button class="num9">9</button>
+          <button class="times">&times;</button>
+          <!-- third row -->
+          <button class="num4">4</button>
+          <button class="num5">5</button>
+          <button class="num6">6</button>
+          <button class="minus">&minus;</button>
+          <!-- forth row -->
+          <button class="num1">1</button>
+          <button class="num2">2</button>
+          <button class="num3">3</button>
+          <button class="plus">&plus;</button>
+          <!-- last row -->
+          <button class="num0">0</button>
+          <button class="point">.</button>
+          <button class="equals">&equals;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-mode-switch">
+      <label class="switch" for="toggle">
+        <input type="checkbox" id="toggle" onchange="handleTheme()" />
+        <span class="slider"></span>
+      </label>
+    </div>
   </body>
 </html>
