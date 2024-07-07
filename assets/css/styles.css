@@ -121,7 +121,7 @@ body {
         display: block;
         width: 100%;
         overflow: scroll;
-        direction: rtl;
+        /* direction: rtl; */
         margin-bottom: 0.5em;
       }
     }
